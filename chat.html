@@ -1,0 +1,64 @@
+<!-- Chatbot icon -->
+<div style="position: fixed; left: 10px; bottom: 20px;" id="chatbot-icon">
+    <img src="https://play-lh.googleusercontent.com/hk5zZ8Xup9HgoP-Xxgoav8geLOAPn2X_a8_fcYJA02uYt8CbxQBkkMChi5gbq5goNA" 
+         alt="AI Chatbot" 
+         style="width: 80px; height: auto; border-radius: 50%; box-shadow: 0 0 10px rgba(0,0,0,0.2); cursor: pointer;">
+</div>
+
+<!-- Modal for ChatGPT-like UI (initially hidden) -->
+<div id="chat-modal" style="display:none; position:fixed; bottom:100px; left:10px; width:300px; background:#fff; border:1px solid #ccc; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.1); padding:1em;">
+    <div id="chat-content" style="max-height:200px; overflow:auto; margin-bottom:1em;"></div>
+    <input type="text" id="user-input" placeholder="اكتب سؤالك هنا..." style="width:80%;">
+    <button id="send-btn" style="width:18%; background:#20443b; color:#fff; border:none; border-radius:5px; cursor:pointer;">إرسال</button>
+</div>
+
+<script>
+// Toggle modal display when the chatbot icon is clicked
+document.getElementById('chatbot-icon').addEventListener('click', function() {
+    const chatModal = document.getElementById('chat-modal');
+    chatModal.style.display = (chatModal.style.display === 'none') ? 'block' : 'none';
+});
+
+// Handle sending messages to ChatGPT API
+document.getElementById('send-btn').addEventListener('click', sendMessage);
+
+async function sendMessage() {
+    const userInput = document.getElementById('user-input');
+    const message = userInput.value.trim();
+    if (!message) return;
+
+    // Display user message
+    const chatContent = document.getElementById('chat-content');
+    const userMsgDiv = document.createElement('div');
+    userMsgDiv.textContent = "أنت: " + message;
+    userMsgDiv.style.marginBottom = '0.5em';
+    chatContent.appendChild(userMsgDiv);
+
+    // Clear input
+    userInput.value = '';
+
+    // Call ChatGPT API here
+    // Make sure you have a server-side endpoint that communicates with OpenAI's API,
+    // or use a secure environment since you shouldn't expose your API key on the client side.
+
+    const response = await fetch('/your-chatgpt-endpoint', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt: message })
+    });
+
+    const result = await response.json();
+
+    // Display response
+    const botMsgDiv = document.createElement('div');
+    botMsgDiv.textContent = "مساعد: " + result.answer;
+    botMsgDiv.style.background = '#f0f0f0';
+    botMsgDiv.style.borderRadius = '5px';
+    botMsgDiv.style.padding = '0.5em';
+    botMsgDiv.style.marginBottom = '0.5em';
+    chatContent.appendChild(botMsgDiv);
+
+    // Scroll to bottom
+    chatContent.scrollTop = chatContent.scrollHeight;
+}
+</script>

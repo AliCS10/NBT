@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة المعلومات</title>
+    <link rel="stylesheet" href="StartDAS.css">
+</head>
+<body>
+    <div class="navbar">
+        <img src="https://i.ibb.co/M8wGT4V/Title-3-1.png" alt="شعار دقة" class="logo">
+        <a href="تسجيل الدخول.html" class="login-btn">تسجيل دخول</a>
+        <ul>
+            <li><a href="index.html">الصفحة الرئيسية</a></li>
+            <li><a href="الخدمات.html">الخدمات</a></li>
+            <li><a href="من نحن؟.html">لوحة المعلومات</a></li>
+            <li><a href="output.html">رصد الزرعة</a></li>
+            <li><a href="اشترك معنا.html">اشترك معنا</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <h1>لوحة المعلومات</h1>
+        <div class="table-container">
+            <!-- بيانات التربة -->
+            <div class="table">
+                <h2>بيانات التربة</h2>
+                <div class="value-box">
+                    <label for="nitrogen">نوع التربة:</label>
+                    <input type="text" id="nitrogen" value="سماد">
+                </div>
+                <div class="value-box">
+                    <label for="nitrogen">النيتروجين:</label>
+                    <input type="number" id="nitrogen" value="20">
+                </div>
+                <div class="value-box">
+                    <label for="phosphorous">الفوسفور:</label>
+                    <input type="number" id="phosphorous" value="58">
+                </div>
+                <div class="value-box">
+                    <label for="potassium">البوتاسيوم:</label>
+                    <input type="number" id="potassium" value="41">
+                </div>
+                <div class="value-box">
+                    <label for="ph">درجة الحموضة:</label>
+                    <input type="number" id="ph" value="7.04">
+                </div>
+            </div>
+
+            <!-- بيانات المناخ -->
+            <div class="table">
+                <h2>بيانات المناخ</h2>
+                <div class="value-box">
+                    <label for="temperature">درجة الحرارة:</label>
+                    <input type="number" id="temperature" value="21.77">
+                </div>
+                <div class="value-box">
+                    <label for="humidity">الرطوبة:</label>
+                    <input type="number" id="humidity" value="80.32">
+                </div>
+                <div class="value-box">
+                    <label for="rainfall">الأمطار:</label>
+                    <input type="number" id="rainfall" value="226.66">
+                </div>
+            </div>
+
+            <!-- البيانات الشخصية -->
+            <div class="table">
+                <h2>بيانات المزرعة</h2>
+                <div class="value-box">
+                    <label for="area">المساحة:</label>
+                    <input type="number" id="area" value="100">
+                </div>
+                <div class="value-box">
+                    <label for="location">الموقع:</label>
+                    <input type="text" id="location" value="جازان">
+                </div>
+                <div class="value-box">
+                    <label for="Type">نوع المحصول:</label>
+                    <input type="text" id="location" value="الذرة">
+                </div>
+                <div class="value-box">
+                    <label for="location"> المحصول الاخر : </label>
+                    <input type="text" id="location" value="الشعير">
+            </div>
+        
+            <div class="value-box">
+                <label for="location"> المحصول الاخر : </label>
+                <input type="text" id="location" value="المانجا">
+        </div>
+            
+            </div>
+        </div>
+
+
+
+        <!-- زر ابدأ -->
+        <button class="start-btn" onclick="window.location.href='dashboard.html';">ابدأ الآن</button>
+
+    </div>
+</body>
+</html>
